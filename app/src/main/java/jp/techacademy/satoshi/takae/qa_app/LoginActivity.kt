@@ -119,7 +119,13 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun createAccount(email: String, password: String){
+    private fun createAccount(email:String,password:String){
+        progressBar.visibility = View.VISIBLE
+
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(mCreateAccountListener)
+    }
+
+    private fun login(email: String, password: String){
         progressBar.visibility = View.VISIBLE
 
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(mCreateAccountListener)
